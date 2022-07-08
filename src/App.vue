@@ -1,6 +1,5 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Child from './components/HelloWorld.vue'
 import { ref } from 'vue'
 import store from './store'
 const count = ref(0)
@@ -13,21 +12,17 @@ const counterObj = {
 </script>
 
 <template>
-  <header>
+  <div>
     <div class="wrapper">
       <h1>This is local</h1>
       {{ count }}<br/>
-      <button @click="increment"></button><br/>
+      <button @click="increment">Local Increase</button><br/>
       <h1>This is stored</h1>
       {{ store.count }}<br/>
-      <button @click="store.increment"></button><br/>
-      <HelloWorld :propObj="counterObj" />
+      <button @click="store.increment">Store Increase</button><br/>
+      <child :propObj="counterObj" />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
 <style>
